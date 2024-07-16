@@ -1,6 +1,6 @@
 <h1>Good Morning Dave</h1>
 
 <div>
-  <input type="text" placeholder="Enter a town, city, or zipcode" [formController]/>
+  <input type="text" placeholder="Enter a town, city, or zipcode" [formControl]="enteredLocation"/>
   <button (click)="searchLocation()">Search</button>
 </div>

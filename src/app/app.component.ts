@@ -12,9 +12,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'vt-hiking-trails';
-  location = new FormControl('');
+  enteredLocation = new FormControl('');
   searchLocation:Function = () => {
-    console.log(location);
+    console.log('testLocal', this.enteredLocation);
   };
 
 }
