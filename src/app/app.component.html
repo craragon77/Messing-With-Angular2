@@ -1,6 +1,9 @@
-<h1>Good Morning Dave</h1>
+<h1>Get A Dog Pic!</h1>
 
 <div>
-  <input type="text" placeholder="Enter a town, city, or zipcode" [formControl]="enteredLocation"/>
+  <input type="text" placeholder="Find A Dog Picture!" [formControl]="enteredLocation"/>
   <button (click)="searchLocation()">Search</button>
+</div>
+<div>
+  <img alt="dog picture" src="{{localImg}}"/>
 </div>
