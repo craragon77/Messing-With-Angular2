@@ -5,5 +5,6 @@
   <button (click)="searchLocation()">Search</button>
 </div>
 <div>
-  <img alt="dog picture" src="{{localImg}}"/>
+  <img class="{{searchComplete ? '' : 'hidden'}}" alt="dog picture" src="{{localImg}}"/>
+  <p class="{{noResultsFound ? '' : 'hidden'}}">No search results found for this </p>
 </div>

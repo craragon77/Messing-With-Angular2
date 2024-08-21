@@ -16,17 +16,24 @@ export class AppComponent {
   enteredLocation = new FormControl('');
   localImg = new String;
   searchComplete = false;
-  async fetchDogs(): Promise<String | null>{
-    const data = await fetch('https://dog.ceo/api/breeds/image/random')
+  noResultsFound = false;
+  // console.log(localImg);
+  async fetchDogs(dogName:string | null): Promise<String | null>{
+    const data = await fetch(`https://dog.ceo/api/breed/${dogName}/images/random`)
     return await data.json()
   }
   searchLocation:Function = () => {
-    console.log('testLocal', this.enteredLocation);
-    this.fetchDogs()
+    console.log('testLocal', this.enteredLocation.value);
+    this.noResultsFound = false;
+    this.fetchDogs(this.enteredLocation.value)
     .then((res:any) => {
       console.log('res', res);
-      this.localImg = res.message;
-      this.searchComplete = true;
+      if(res.status == 'success'){
+        this.localImg = res.message;
+        this.searchComplete = true;
+      }else{
+        this.noResultsFound = true;
+      }
     })
     .catch((err) => console.log('err', err));
   };
